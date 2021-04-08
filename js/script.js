@@ -1,17 +1,28 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const menu = document.querySelector('.menu'),
-    menuItem = document.querySelectorAll('.menu_item'),
-    hamburger = document.querySelector('.hamburger');
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('hamburger_active');
-        menu.classList.toggle('menu_active');
-    });
 
-    menuItem.forEach(item => {
-        item.addEventListener('click', () => {
-            hamburger.classList.toggle('hamburger_active');
-            menu.classList.toggle('menu_active');
-        })
-    })
-})
+const slider = tns({
+    container: '.carousel__inner',
+    items: 1,
+    slideBy: 'page',
+    autoplay: false,
+    controls: false,
+    nav: true,
+    navPosition: "bottom" 
+    // responsive: {
+    //     1100: {
+    //         nav: true
+    //     }
+    // }
+  });
+
+  console.log(slider.responsive);
+
+  document.querySelector('.prev').addEventListener('click', function () {
+    slider.goTo('prev');
+  });
+
+  document.querySelector('.next').addEventListener('click', function () {
+    slider.goTo('next');
+  });
+
+  
